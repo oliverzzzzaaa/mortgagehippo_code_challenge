@@ -81,3 +81,265 @@ Migrating to CreateTransactions (20200324081830)
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mTransaction Load (0.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ db/seeds.rb:9
+  [1m[36mCoin Load (1.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "admin", "api_key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "bob@mortgagehippo.com"], ["admin", true], ["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["created_at", "2020-03-24 08:33:50.316880"], ["updated_at", "2020-03-24 08:33:50.316880"]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "admin", "api_key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "mike@mortgagehippo.com"], ["admin", false], ["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["created_at", "2020-03-24 08:33:50.325426"], ["updated_at", "2020-03-24 08:33:50.325426"]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mike@mortgagehippo.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin2@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "M_KVZJCY5vtWN_3O1-z5Yw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "admin", "api_key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "admin2@mortgagehippo.com"], ["admin", true], ["api_key", "M_KVZJCY5vtWN_3O1-z5Yw"], ["created_at", "2020-03-24 08:33:50.331556"], ["updated_at", "2020-03-24 08:33:50.331556"]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin2@mortgagehippo.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "M_KVZJCY5vtWN_3O1-z5Yw"], ["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "notadmin@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "q2DGaYlXTXCatTRKjWEARQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "admin", "api_key", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "notadmin@mortgagehippo.com"], ["admin", false], ["api_key", "q2DGaYlXTXCatTRKjWEARQ"], ["created_at", "2020-03-24 08:33:50.337875"], ["updated_at", "2020-03-24 08:33:50.337875"]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "notadmin@mortgagehippo.com"], ["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "q2DGaYlXTXCatTRKjWEARQ"], ["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:30
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = $1 LIMIT $2[0m  [["name", "BCoin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:30
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Create (0.6ms)[0m  [1m[32mINSERT INTO "coins" ("value", "name", "created_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["value", 10], ["name", "BCoin"], ["created_by", 1], ["created_at", "2020-03-24 08:33:50.381285"], ["updated_at", "2020-03-24 08:33:50.381285"]]
+  ↳ db/seeds.rb:30
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:30
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mike@mortgagehippo.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:35
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = $1 LIMIT $2[0m  [["name", "HCoin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mike@mortgagehippo.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Create (0.3ms)[0m  [1m[32mINSERT INTO "coins" ("value", "name", "created_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["value", 1], ["name", "HCoin"], ["created_by", 2], ["created_at", "2020-03-24 08:33:50.390815"], ["updated_at", "2020-03-24 08:33:50.390815"]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:41
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = $1 LIMIT $2[0m  [["name", "HippoCoin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Create (0.3ms)[0m  [1m[32mINSERT INTO "coins" ("value", "name", "created_by", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["value", 1], ["name", "HippoCoin"], ["created_by", 1], ["created_at", "2020-03-24 08:33:50.401928"], ["updated_at", "2020-03-24 08:33:50.401928"]]
+  ↳ db/seeds.rb:41
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:41
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@mortgagehippo.com"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."name" = $1 LIMIT $2[0m  [["name", "BCoin"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:47
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mTransaction Create (0.6ms)[0m  [1m[32mINSERT INTO "transactions" ("transaction_type", "user_id", "coin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["transaction_type", 1], ["user_id", 1], ["coin_id", 1], ["created_at", "2020-03-24 08:33:50.426080"], ["updated_at", "2020-03-24 08:33:50.426080"]]
+  ↳ db/seeds.rb:47
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:47
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/coincount?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:35:26 -0700
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wikiwoo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::CoinsController#count as JSON
+  Parameters: {"api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `require_api_key' for #<Api::CoinsController:0x00007f8a3a3cb808>
+Did you mean?  require_relative):
+  
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.4.2) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.4.2) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.4.2) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.4.2) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.4.2) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.4.2) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.4.2) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.4.2) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.4.2) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.4.2) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.4.2) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.4.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.4.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.4.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.4.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.4.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.4.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.4.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.4.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.4.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.4.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.4.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.4) lib/puma/configuration.rb:227:in `call'
+puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
+puma (3.12.4) lib/puma/server.rb:476:in `process_client'
+puma (3.12.4) lib/puma/server.rb:334:in `block in run'
+puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
