@@ -14,6 +14,8 @@ I also namespaced all routes under "api" since these are only api calls
 + I chose to set a starting value and have it increment/decrement based on transactions. Thus, emails are also sent based on coin values
 + I chose to include email logic in the transactions instead of coin, because I figured withdraws should normally trigger the emails
 
+URL: hippo-coin-machine.herokuapp.com (remember to add /api for API calls)
+
 **Transactions**
 
 + I chose to use an integer 1 for deposit, and 0 for withdraw, so additional actions could be added in the future
