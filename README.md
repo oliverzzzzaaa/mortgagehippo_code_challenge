@@ -1,3 +1,27 @@
+## Design Choices:
+
+I wasn't too sure what the requested design called for, so I made some assumptions. 
+I also namespaced all routes under "api" since these are only api calls
+
+**User**
+    
++ I added an admin boolean instead of an admin resource, so admins don't need to create an extra user to interact
+    with the app.
++ I had users sign up with a unique email, mimicing other APIs and allowing the server to send emails to users (or admins for now)
+
+**Coins**
+
++ I chose to set a starting value and have it increment/decrement based on transactions. Thus, emails are also sent based on coin values
++ I chose to include email logic in the transactions instead of coin, because I figured withdraws should normally trigger the emails
+
+**Transactions**
+
++ I chose to use an integer 1 for deposit, and 0 for withdraw, so additional actions could be added in the future
++ Each transaction is made by a user and features one coin
+
+
+Most of my notes can also be found commented out on relevant files. 
+
 ## MortgageHippo Coding Challenge: Coin Machine API
 ------
 Welcome to the MortgageHippo Coding Challenge. For this challenge you will need to create a RESTful Rails API that will act as a Coin Machine, taking in Coins and performing a variety of functions. This README will be broken up into steps, please read through the entire README before beginning.
