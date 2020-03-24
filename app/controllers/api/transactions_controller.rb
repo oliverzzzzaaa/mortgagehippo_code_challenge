@@ -15,19 +15,28 @@ class Api::TransactionsController < ApplicationController
 
     def create
         @transaction = Transaction.new(transaction_params)
+
         # Assigns the correct user_id in case the user puts another user's ID
+
         @transaction.user_id = User.find_by(api_key: params[:api_key]).id
+
         if @transaction.save
+
             @coin = Coin.find(@transaction.coin_id)
+
             # If deposit, increment @coin's value, else decrement 
             # Also, send email if value is less than 4
+
             if @transaction.transaction_type == 1
                 @coin.update_attributes(value: @coin.value+1)
                 if @coin.value < 4
                     LowFundsMailer.low_funds(@coin).deliver
                 end
+
             else
+
                 # If withdraw, must ensure the value is > 0
+
                 if (@coin.value > 0)
                     @coin.update_attributes(value: @coin.value-1)
                     if @coin.value < 4
@@ -38,7 +47,9 @@ class Api::TransactionsController < ApplicationController
                 end
             end
             @coin.save
+
             # Return the transaction 
+            
             render json: @transaction
         else
             render json: @transaction.errors.full_messages, status: 422
