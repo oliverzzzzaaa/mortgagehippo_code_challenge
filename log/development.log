@@ -621,3 +621,23 @@ Processing by Api::CoinsController#index as JSON
 Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 2.9ms)
 
 
+Started GET "/api/coins?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:55:30 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wikiwoo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::CoinsController#index as JSON
+  Parameters: {"api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Load (1.1ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/controllers/api/coins_controller.rb:9
+Completed 200 OK in 96ms (Views: 31.0ms | ActiveRecord: 19.5ms)
+
+
