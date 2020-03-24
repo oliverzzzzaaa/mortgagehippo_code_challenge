@@ -343,3 +343,281 @@ puma (3.12.4) lib/puma/server.rb:675:in `handle_request'
 puma (3.12.4) lib/puma/server.rb:476:in `process_client'
 puma (3.12.4) lib/puma/server.rb:334:in `block in run'
 puma (3.12.4) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/coincount?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:37:06 -0700
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wikiwoo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::CoinsController#count as JSON
+  Parameters: {"api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT SUM("coins"."value") FROM "coins"[0m
+  ↳ app/controllers/api/coins_controller.rb:59
+Completed 200 OK in 57ms (Views: 0.7ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/api/coins?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:37:12 -0700
+Processing by Api::CoinsController#index as JSON
+  Parameters: {"api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Load (4.8ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/controllers/api/coins_controller.rb:9
+Completed 200 OK in 32ms (Views: 11.3ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/api/transactions?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:37:18 -0700
+Processing by Api::TransactionsController#index as JSON
+  Parameters: {"api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mTransaction Load (2.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/controllers/api/transactions_controller.rb:10
+Completed 200 OK in 36ms (Views: 12.0ms | ActiveRecord: 15.2ms)
+
+
+Started POST "/api/transactions?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:37:43 -0700
+Processing by Api::TransactionsController#create as JSON
+  Parameters: {"transaction"=>{"user_id"=>"2", "coin_id"=>"2", "transaction_type"=>"1"}, "api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mTransaction Create (1.1ms)[0m  [1m[32mINSERT INTO "transactions" ("transaction_type", "user_id", "coin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["transaction_type", 1], ["user_id", 1], ["coin_id", 2], ["created_at", "2020-03-24 08:37:43.703319"], ["updated_at", "2020-03-24 08:37:43.703319"]]
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mCoin Load (1.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mCoin Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = $1 AND "coins"."id" != $2 LIMIT $3[0m  [["name", "HCoin"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mike@mortgagehippo.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Update (0.4ms)[0m  [1m[33mUPDATE "coins" SET "value" = $1, "updated_at" = $2 WHERE "coins"."id" = $3[0m  [["value", 2], ["updated_at", "2020-03-24 08:37:43.736141"], ["id", 2]]
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."admin" = $1[0m  [["admin", true]]
+  ↳ app/mailers/low_funds_mailer.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin2@mortgagehippo.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "M_KVZJCY5vtWN_3O1-z5Yw"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+LowFundsMailer#low_funds: processed outbound mail in 51.7ms
+Completed 500 Internal Server Error in 308ms (ActiveRecord: 14.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template low_funds_mailer/low_funds with "mailer". Searched in:
+  * "low_funds_mailer"
+):
+  
+app/mailers/low_funds_mailer.rb:14:in `low_funds'
+app/controllers/api/transactions_controller.rb:27:in `create'
+Started POST "/api/transactions?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:38:33 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/wikiwoo/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.2/lib/active_record/log_subscriber.rb:98
+Processing by Api::TransactionsController#create as JSON
+  Parameters: {"transaction"=>{"user_id"=>"2", "coin_id"=>"2", "transaction_type"=>"1"}, "api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mTransaction Create (0.9ms)[0m  [1m[32mINSERT INTO "transactions" ("transaction_type", "user_id", "coin_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["transaction_type", 1], ["user_id", 1], ["coin_id", 2], ["created_at", "2020-03-24 08:38:33.421888"], ["updated_at", "2020-03-24 08:38:33.421888"]]
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/transactions_controller.rb:20
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = $1 AND "coins"."id" != $2 LIMIT $3[0m  [["name", "HCoin"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "mike@mortgagehippo.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "y0JPxQPkfoSFVxzFSac8ZQ"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Update (0.5ms)[0m  [1m[33mUPDATE "coins" SET "value" = $1, "updated_at" = $2 WHERE "coins"."id" = $3[0m  [["value", 3], ["updated_at", "2020-03-24 08:38:33.436487"], ["id", 2]]
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/transactions_controller.rb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."admin" = $1[0m  [["admin", true]]
+  ↳ app/mailers/low_funds_mailer.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "admin2@mortgagehippo.com"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "M_KVZJCY5vtWN_3O1-z5Yw"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  Rendering low_funds_mailer/low_funds.html.erb within layouts/mailer
+  Rendered low_funds_mailer/low_funds.html.erb within layouts/mailer (1.3ms)
+LowFundsMailer#low_funds: processed outbound mail in 265.9ms
+Sent mail to bob@mortgagehippo.com, admin2@mortgagehippo.com (22.5ms)
+Date: Tue, 24 Mar 2020 01:38:33 -0700
+From: server@mortgagehippo.com
+To: bob@mortgagehippo.com, 
+ admin2@mortgagehippo.com
+Message-ID: <5e79c709cc8b7_2cd13ff3790394fc90979@wikiwoos-MacBook-Air.local.mail>
+Subject: Low funds for HCoin
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear Admins</h1>
+    <p>
+        The funds for HCoin are runnning low. Please replenish if necessary.
+    </p>
+  </body>
+</html>
+  </body>
+</html>
+
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/transactions_controller.rb:40
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = $1 AND "coins"."id" != $2 LIMIT $3[0m  [["name", "HCoin"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/transactions_controller.rb:40
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/transactions_controller.rb:40
+Completed 200 OK in 519ms (Views: 0.6ms | ActiveRecord: 30.1ms)
+
+
+Started GET "/api/coins?api_key=PqyVl-OOLwocWNSkodz9CA" for ::1 at 2020-03-24 01:38:42 -0700
+Processing by Api::CoinsController#index as JSON
+  Parameters: {"api_key"=>"PqyVl-OOLwocWNSkodz9CA"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."api_key" = $1 LIMIT $2[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "bob@mortgagehippo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."api_key" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["api_key", "PqyVl-OOLwocWNSkodz9CA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  ↳ app/controllers/api/coins_controller.rb:9
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 2.9ms)
+
+
